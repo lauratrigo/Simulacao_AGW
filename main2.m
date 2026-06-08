@@ -36,7 +36,7 @@ fprintf('O pico do forçante ocorre em t=2000s (~33 min)\n');
 HORA_UT_TERREMOTO = 2.0;   % 2:00 UT
 
 % Horário final desejado (6:00 UT)
-HORA_UT_FINAL = 6.0;       % 6:00 UT
+HORA_UT_FINAL = 3.0;       % 6:00 UT
 
 % Calcula o tempo total de simulação necessário
 tempo_total_horas = HORA_UT_FINAL - HORA_UT_TERREMOTO;  % 4 horas
@@ -821,7 +821,7 @@ while (i_t < nt) && (max(wp(:)) < 500) && (max(up_tot(:)) < 1500)
         shading interp;
         colormap(ax1, 'jet');
         caxis([-vm, vm]);
-        axis tight;
+%         axis tight;
 
         % Contornos
         con_lev = [-0.5, -0.1, -0.05, 0.05, 0.1, 0.5];
@@ -863,15 +863,15 @@ while (i_t < nt) && (max(wp(:)) < 500) && (max(up_tot(:)) < 1500)
 
         % Desenha círculos representando a Terra
         r_ea = 6371;
-        rectangle('Position', [-r_ea, -r_ea, 2*r_ea, 2*r_ea], ...
-                  'Curvature', [1, 1], 'EdgeColor', [0.5, 0.5, 0.5], 'LineWidth', 1, ...
-                  'FaceColor', 'none');
-        rectangle('Position', [-(r_ea-100), -(r_ea-100), 2*(r_ea-100), 2*(r_ea-100)], ...
-                  'Curvature', [1, 1], 'EdgeColor', 'w', 'LineWidth', 1, 'FaceColor', 'none');
+%         rectangle('Position', [-r_ea, -r_ea, 2*r_ea, 2*r_ea], ...
+%                   'Curvature', [1, 1], 'EdgeColor', [0.5, 0.5, 0.5], 'LineWidth', 1, ...
+%                   'FaceColor', 'none');
+%         rectangle('Position', [-(r_ea-100), -(r_ea-100), 2*(r_ea-100), 2*(r_ea-100)], ...
+%                   'Curvature', [1, 1], 'EdgeColor', 'w', 'LineWidth', 1, 'FaceColor', 'none');
 
         hold off;
         axis off;
-        axis equal;
+%         axis equal;
 
         % ===== LABELS DOS EIXOS =====
         annotation(fig3, 'textbox', [0.25, 0.02, 0.1, 0.05], ...
@@ -904,7 +904,7 @@ while (i_t < nt) && (max(wp(:)) < 500) && (max(up_tot(:)) < 1500)
         pcolor(lat_geo_ion, alt_geo_ion, data_den_norm);
         shading interp;
         colormap(ax2, 'gray');
-        axis tight;
+%         axis tight;
         hold on;
 
         % Contornos do potencial
@@ -920,14 +920,14 @@ while (i_t < nt) && (max(wp(:)) < 500) && (max(up_tot(:)) < 1500)
         for i = 1:10:np
             plot(z_grid_corte(i, :), y_grid_corte(i, :), 'Color', [0.5, 0.5, 0.5], 'LineWidth', 0.5);
         end
-        rectangle('Position', [-r_ea, -r_ea, 2*r_ea, 2*r_ea], ...
-                  'Curvature', [1, 1], 'EdgeColor', [0.5, 0.5, 0.5], 'LineWidth', 1, ...
-                  'FaceColor', 'none');
-        rectangle('Position', [-(r_ea-100), -(r_ea-100), 2*(r_ea-100), 2*(r_ea-100)], ...
-                  'Curvature', [1, 1], 'EdgeColor', 'w', 'LineWidth', 1, 'FaceColor', 'none');
+%         rectangle('Position', [-r_ea, -r_ea, 2*r_ea, 2*r_ea], ...
+%                   'Curvature', [1, 1], 'EdgeColor', [0.5, 0.5, 0.5], 'LineWidth', 1, ...
+%                   'FaceColor', 'none');
+%         rectangle('Position', [-(r_ea-100), -(r_ea-100), 2*(r_ea-100), 2*(r_ea-100)], ...
+%                   'Curvature', [1, 1], 'EdgeColor', 'w', 'LineWidth', 1, 'FaceColor', 'none');
         hold off;
         axis off;
-        axis equal;
+%         axis equal;
 
         colorbar('Position', [0.92, 0.11, 0.02, 0.8]);
 
